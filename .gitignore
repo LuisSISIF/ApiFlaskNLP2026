@@ -1,0 +1,22 @@
+# Arquivos de ambiente local (Contém chaves secretas)
+.env
+.env.local
+.env.*.local
+
+# Ambientes virtuais do Python
+.venv/
+venv/
+ENV/
+env/
+
+# Cache do Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Arquivos do sistema e IDEs
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
