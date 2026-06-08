@@ -18,7 +18,14 @@ CORS(app)  # Initialize CORS for the entire application
 modelo = 'gemini-2.5-flash'
 modeloEmbeddings = pickle.load(open('datasetEmbeddings.pkl','rb'))
 chave_secreta = os.getenv('GEMINI_API_KEY')
+print("--- DIAGNOSTICO DE INICIALIZACAO ---")
+if chave_secreta is None:
+    print("ERRO: A variavel GEMINI_API_KEY nao foi encontrada no ambiente (retornou None).")
+else:
+    print(f"SUCESSO: GEMINI_API_KEY carregada. Comprimento: {len(chave_secreta)}, Comeca com: {chave_secreta[:6]}... e Termina com: ...{chave_secreta[-6:]}")
+print("-------------------------------------")
 generativeai.configure(api_key=chave_secreta)
+
 
 
 @app.route("/")
