@@ -17,10 +17,16 @@ def gerarBuscarConsulta(consulta,dataset):
     #print(produtos_escalares)
     indice = np.argmax(produtos_escalares)
     #print(produtos_escalares[indice])
-    return dataset.iloc[indice]['Conteúdo']
+    if 'Resposta' in dataset.columns:
+        return dataset.iloc[indice]['Resposta']
+    elif 'Conteúdo' in dataset.columns:
+        return dataset.iloc[indice]['Conteúdo']
+    else:
+        return dataset.iloc[indice].iloc[1]
 
 
-modelo = 'gemini-3-flash-preview'
+
+modelo = 'gemini-2.5-flash'
 
 def melhorarResposta(inputText):
     client = genai.Client(
@@ -54,4 +60,5 @@ def melhorarResposta(inputText):
         config=generate_content_config,
     )
 
-    return response.text;
+    return response.text
+

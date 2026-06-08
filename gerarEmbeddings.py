@@ -9,11 +9,11 @@ import pickle
 load_dotenv()
 
 # Obtém a chave da API
-chave_secreta = os.environ.get('GEMINI_API_KEY', 'AIzaSyDGMuhiSu_TNiYNrED5gnLIhbPheBR9noY')
+chave_secreta = os.environ.get('GEMINI_API_KEY')
 
 if not chave_secreta:
     raise ValueError(
-        "A variável de ambiente GEMINI_API_KEY não foi encontrada."
+        "A variável de ambiente GEMINI_API_KEY não foi encontrada no arquivo .env ou no sistema."
     )
 
 # Configura Gemini
